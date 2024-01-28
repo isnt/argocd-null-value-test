@@ -1,0 +1,7 @@
+# null-value-test/cm.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: test
+data:
+  foo: bar
