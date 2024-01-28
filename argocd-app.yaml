@@ -1,0 +1,23 @@
+# null-value-test-argo-app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: null-value-test
+  namespace: argocd # Replace this with your Argo CD control plane's namespace
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  destination:
+    namespace: null-value-test
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: https://github.com/isnt/argocd-null-value-test.git
+    targetRevision: main
+    path: manifests
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
