@@ -4,4 +4,4 @@ kind: ConfigMap
 metadata:
   name: test
 data:
-  foo: bar
+  foo:
